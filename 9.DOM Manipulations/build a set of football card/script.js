@@ -10,12 +10,12 @@ const footballTeam = {
   ]
 };
 
-// Display team info
+
 document.getElementById("team").textContent = footballTeam.team;
 document.getElementById("year").textContent = footballTeam.year;
 document.getElementById("head-coach").textContent = footballTeam.headCoach;
 
-// Function to display player cards
+
 function displayPlayers(players) {
   const container = document.getElementById("player-cards");
   container.innerHTML = "";
@@ -36,10 +36,10 @@ function displayPlayers(players) {
   });
 }
 
-// Initial display
+
 displayPlayers(footballTeam.players);
 
-// Filter by position on dropdown change
+
 document.getElementById("players").addEventListener("change", function () {
   const selected = this.value;
 
