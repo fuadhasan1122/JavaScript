@@ -12,5 +12,49 @@ function cleanInputString(str) {
 }
 
 function isInvalidInput(str) {
-  const regex = /[0-9]e[0-9]/i;
+  const regex = /\d+e\d+/i;
+  return str.match(regex);
 }
+
+function addEntry() {
+  const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
+  <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+  <input
+    type="number"
+    min="0"
+    id="${entryDropdown.value}-${entryNumber}-calories"
+    placeholder="Calories"
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function calculateCalories(e) {
+  e.preventDefault();
+  isError = false;
+
+  const breakfastNumberInputs = document.querySelectorAll("#breakfast input[type='number']");
+
+}
+
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    const invalidInputMatch = isInvalidInput(currVal);
+
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true;
+      return null;
+    }
+    calories += Number(currVal);
+  }
+  return calories;
+}
+
+addEntryButton.addEventListener("click", addEntry);
