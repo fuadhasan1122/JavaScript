@@ -1,9 +1,0 @@
-DOM stand for Document Object Model
-      ======= Methods======
-
-getElementById(id) ----- Selects an element by its ID.
-getElementsByClassName(class) ----- Selects all elements with a given class.
-querySelector(selector)---- Selects the first matching element.
-querySelectorAll(selector)----- Selects all matching elements.
-
-
