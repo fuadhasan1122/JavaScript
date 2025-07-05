@@ -28,4 +28,4 @@ numberInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     checkUserInput();
   }
-});
+});// step 62
