@@ -64,21 +64,10 @@ const displayCatalog = () => {
     return catalogString
 }
 const displayPlantsSet = () => {
-    const catalogSet = new Set();
-    catalogSet.add(ballerina);
-    catalogSet.add(ballerina);
-    catalogSet.add(prettyPolly);
-    return catalogSet
+  
+  const commonNames = Array.from(catalog.keys(), plant => plant.commonName);
+  return new Set(commonNames);
 };
-const displayPlantsSet = () => {
-    const commonNameSet = new Set();
-    for (const plant of catalog.keys()) {
-        commonNameSet.add(plant.commonName);
-    }
-    return commonNameSet;
-};
-
-
 
 const plantsSet = displayPlantsSet();
 console.log(plantsSet);
